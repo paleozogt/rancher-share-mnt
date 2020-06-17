@@ -11,5 +11,5 @@ if [ $GOARCH == x86_64 ]; then
 fi
 
 mkdir -p bin
-[ "$(uname)" != "Darwin" ] && LINKFLAGS="-linkmode external -extldflags -static -s"
-CGO_ENABLED=0 go build -ldflags "-X main.VERSION=$VERSION $LINKFLAGS -linkmode external -extldflags -static -s" -o bin/share-mnt
+[ "$(uname)" != "Darwin" ] && LINKFLAGS="-extldflags -static -s"
+CGO_ENABLED=0 go build -ldflags "-X main.VERSION=$VERSION $LINKFLAGS -extldflags -static -s" -o bin/share-mnt
